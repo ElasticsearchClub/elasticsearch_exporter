@@ -1812,7 +1812,7 @@ func (c *Nodes) fetchAndDecodeNodeStats() (nodeStatsResponse, error) {
 	u := *c.url
 
 	if c.all {
-		u.Path = path.Join(u.Path, "/_nodes/stats")
+		u.Path = path.Join(u.Path, "/_nodes/stats?filter_path=-nodes.*.http.clients")
 	} else {
 		u.Path = path.Join(u.Path, "_nodes", c.node, "stats")
 	}
